@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800&family=Varela+Round&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Varela Round", "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* EARTHY GREEN NATURE PALETTE (user preference — overrides generated blue) */
+  --color-primary-200: oklch(0.9 0.07 155);
+  --color-primary-300: oklch(0.82 0.1 155);
+  --color-primary-500: oklch(0.6 0.13 155);
+  --color-primary-600: oklch(0.53 0.12 155);
+  --color-primary-700: oklch(0.45 0.11 155);
+  --color-primary-800: oklch(0.37 0.09 155);
+  --color-primary: oklch(0.53 0.12 155);
+  --color-on-primary: oklch(1 0 0);
+  --color-secondary: oklch(0.68 0.09 140);
+  --color-accent: oklch(0.7 0.12 90);
+  --color-background: oklch(0.985 0.004 155);
+  --color-foreground: oklch(0.26 0.06 155);
+  --color-muted: oklch(0.955 0.012 155);
+  --color-border: oklch(0.9 0.03 155);
+  --color-destructive: oklch(0.58 0.2 27);
+  --color-ring: oklch(0.53 0.12 155);
+
+  /* SEVERITY SEMANTICS — always paired with text labels */
+  --color-severity-mild: oklch(0.62 0.13 150);
+  --color-severity-moderate: oklch(0.79 0.15 85);
+  --color-severity-critical: oklch(0.6 0.19 25);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+/* Garden-soft base surface */
+.bg-canvas {
+  background-color: oklch(0.985 0.004 155);
+  background-image:
+    radial-gradient(circle at 15% 8%, oklch(0.9 0.05 155 / 0.5) 0%, transparent 38%),
+    radial-gradient(circle at 90% 4%, oklch(0.96 0.02 90 / 0.6) 0%, transparent 30%);
+  background-attachment: fixed;
+}
+
+/* Hide number-input spinners & misc reset helpers */
+input[type="file"] {
+  cursor: pointer;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid oklch(0.53 0.12 155 / 0.45);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
